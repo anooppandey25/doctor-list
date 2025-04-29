@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Listing</title>
+  <style>
+    .card { border: 1px solid #2e0808; padding: 20px; margin: 20px; color:darkblue}
+    button:hover{color:red;}
+    h1 {border:5px solid red;background-color: beige;}
+    body{background-color: pink;}
+  </style>
+</head>
+<body>
+  <h1>Find Doctors</h1>
+  <input id="specialty" placeholder="Specialty">
+  <input id="location" placeholder="Location">
+  <button onclick="filterDoctors()">Search</button>
+
+  <div id="list"></div>
+
+  <script>
+    const doctors = [
+      { name: 'Dr. Rajeev', specialty: 'Cardiologist', location: 'Delhi' },
+      { name: 'Dr. Neha', specialty: 'Dermatologist', location: 'Mumbai' }
+    ];
+
+    function filterDoctors() {
+      const s = document.getElementById('specialty').value.toLowerCase();
+      const l = document.getElementById('location').value.toLowerCase();
+      const filtered = doctors.filter(d =>
+        d.specialty.toLowerCase().includes(s) &&
+        d.location.toLowerCase().includes(l)
+      );
+
+      document.getElementById('list').innerHTML = filtered.map(d =>
+        `<div class="card">
+          <h3>${d.name}</h3>
+          <p>${d.specialty} - ${d.location}</p>
+        </div>`
+      ).join('');
+    }
+
+    filterDoctors(); // show all on load
+  </script>
+</body>
+</html>
