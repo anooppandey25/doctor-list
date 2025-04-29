@@ -41,5 +41,4 @@
     <div class="doctor-list">
         <div class="doctor">
             <h2>Dr. Rajeev</h2>
-            <p>Specialty: Cardiologist</
-
+            <p>Specialty: Cardiologist
